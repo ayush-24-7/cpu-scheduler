@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <title>CPU Scheduler</title>
+</head>
+<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen">
+    <div class="bg-white p-6 rounded-lg shadow-md w-96">
+        <h1 class="text-xl font-bold mb-4">CPU Scheduler</h1>
+        <form id="process-form">
+            <div class="mb-4">
+                <label for="process-name" class="block text-gray-700">Process Name:</label>
+                <input type="text" id="process-name" required class="border border-gray-300 p-2 w-full rounded" />
+            </div>
+            <div class="mb-4">
+                <label for="burst-time" class="block text-gray-700">Burst Time:</label>
+                <input type="number" id="burst-time" required min="0" class="border border-gray-300 p-2 w-full rounded" />
+            </div>
+            <div class="mb-4">
+                <label for="arrival-time" class="block text-gray-700">Arrival Time:</label>
+                <input type="number" id="arrival-time" required min="0" class="border border-gray-300 p-2 w-full rounded" />
+            </div>
+            <div class="mb-4">
+                <label for="scheduling-algorithm" class="block text-gray-700">Select Scheduling Algorithm:</label>
+                <select id="scheduling-algorithm" class="border border-gray-300 p-2 w-full rounded">
+                    <option value="fcfs">First-Come, First-Served (FCFS)</option>
+                    <option value="sjf">Shortest Job First (SJF)</option>
+                </select>
+            </div>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-200">Add Process</button>
+            <button type="button" id="clear-button" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition duration-200 ml-2">Clear All</button>
+        </form>
+        
+        <div id="process-list" class="mt-4"></div>
+        <div id="visualization" class="relative mt-6 h-32 border border-gray-300 bg-gray-100"></div>
+    </div>
+
+    <div id="totals" class="mt-6 text-center">
+        <h2 class="text-2xl font-bold">Total Times</h2>
+        <p id="total-waiting-time">Total Waiting Time: 0</p>
+        <p id="total-turnaround-time">Total Turnaround Time: 0</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
